@@ -25,12 +25,73 @@ export function getElements() {
     return elements;
 }
 
+<<<<<<< HEAD
+let loaderInterval = null;
+const loaderMessages = [
+    "Buscando tu ubicación...",
+    "Conectando con satélites...",
+    "Analizando el cielo local...",
+    "Sincronizando datos meteorológicos...",
+    "Preparando tu pronóstico premium...",
+    "Casi listo..."
+];
+
+/**
+ * Controlar el estado del loader con mensajes dinámicos y transiciones suaves
+=======
 /**
  * Controlar el estado del loader
+>>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
  * @param {Object} elements - Elementos del DOM
  * @param {boolean} isLoading - Estado de carga
  */
 export function setLoader(elements, isLoading) {
+<<<<<<< HEAD
+    if (!elements.loader) return;
+
+    const loaderText = document.getElementById('loader-text');
+
+    if (isLoading) {
+        elements.loader.classList.remove('hidden');
+        elements.loader.setAttribute('aria-hidden', 'false');
+
+        // Iniciar rotación de mensajes con transición suave
+        let messageIndex = 0;
+        if (loaderText) {
+            loaderText.textContent = loaderMessages[0];
+            loaderText.classList.remove('exit', 'enter');
+        }
+
+        if (loaderInterval) clearInterval(loaderInterval);
+        loaderInterval = setInterval(() => {
+            if (loaderText) {
+                // 1. Iniciar salida (subir y desvanecer)
+                loaderText.classList.add('exit');
+
+                setTimeout(() => {
+                    // 2. Cambiar texto y preparar entrada desde abajo
+                    messageIndex = (messageIndex + 1) % loaderMessages.length;
+                    loaderText.textContent = loaderMessages[messageIndex];
+                    loaderText.classList.remove('exit');
+                    loaderText.classList.add('enter');
+
+                    // 3. Trigger reflow para que la transición de entrada funcione
+                    loaderText.offsetHeight;
+
+                    // 4. Iniciar entrada (subir al centro y aparecer)
+                    loaderText.classList.remove('enter');
+                }, 500); // Mitad del intervalo de transición CSS aprox.
+            }
+        }, 3000);
+    } else {
+        elements.loader.classList.add('hidden');
+        elements.loader.setAttribute('aria-hidden', 'true');
+
+        if (loaderInterval) {
+            clearInterval(loaderInterval);
+            loaderInterval = null;
+        }
+=======
     console.log(`setLoader llamado con isLoading: ${isLoading}`);
     if (!elements.loader) {
         console.error('Elemento loader no encontrado');
@@ -45,6 +106,7 @@ export function setLoader(elements, isLoading) {
         console.log('Ocultando loader');
         elements.loader.classList.add('hidden');
         elements.loader.setAttribute('aria-hidden', 'true');
+>>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
     }
 }
 

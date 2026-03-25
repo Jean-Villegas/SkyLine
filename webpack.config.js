@@ -7,7 +7,11 @@ module.exports = (env, argv) => {
 
   return {
     entry: './src/js/app.js',
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
@@ -71,8 +75,16 @@ module.exports = (env, argv) => {
     ],
 
     devServer: {
+<<<<<<< HEAD
+      server: 'https', // Necesario para que el móvil permita Geolocalización
+      host: '0.0.0.0',
+      allowedHosts: 'all',
+      static: './dist',
+      port: 3000,
+=======
       static: './dist',
       port: 3001,
+>>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
       hot: true,
       open: true,
       historyApiFallback: true,

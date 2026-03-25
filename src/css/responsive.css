@@ -1,0 +1,683 @@
+/* --- Responsive Design --- */
+
+/* --- Mobile First Approach --- */
+
+/* Mobile (0px - 768px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Header */
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Weather Grid */
+    .weather-grid {
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    /* Hero Weather */
+    .hero-clean {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .city-name {
+        font-size: 2rem;
+    }
+
+    .temp-value {
+        font-size: 4rem;
+    }
+
+    .temp-unit {
+        font-size: 2.5rem;
+    }
+
+    /* Stats Cards */
+    .secondary-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .stats-card {
+        padding: 1rem !important;
+    }
+
+    .stats-card:nth-child(5) {
+        grid-column: 1 / -1;
+    }
+
+    /* Forecast - Mobile Carrusel */
+    .forecast-section {
+        padding: 1.25rem !important;
+    }
+
+    .forecast-content-flex {
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+    }
+
+    .forecast-column {
+        min-width: 110px;
+        max-width: 130px;
+        padding: 1.25rem !important;
+        border-radius: 16px !important;
+    }
+
+    .forecast-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .forecast-day {
+        font-size: 1rem;
+    }
+
+    .forecast-max {
+        font-size: 1.1rem;
+    }
+
+    .forecast-min {
+        font-size: 0.9rem;
+    }
+
+    /* Welcome Hero */
+    .hero-text-block {
+        margin-bottom: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .dest-card {
+        width: 100%;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+}
+
+/* Tablet (768px - 1024px) - iPad Mini Optimizado */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* Header */
+    .header-content {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-container {
+        max-width: 400px;
+        order: 3;
+        width: 100%;
+    }
+
+    /* Weather Grid - Diseño Tablet Específico */
+    .weather-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 0;
+        max-width: 100%;
+    }
+
+    /* Hero Weather */
+    .hero-clean {
+        padding: 3rem 2.5rem;
+        border-radius: 24px;
+        text-align: center;
+    }
+
+    .city-name {
+        font-size: 2.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .temp-value {
+        font-size: 5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .temp-unit {
+        font-size: 3rem;
+    }
+
+    .weather-description {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+
+    /* Stats Cards - Grid 2x2 para Tablet */
+    .secondary-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 1.75rem;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .stats-card {
+        padding: 2rem !important;
+        border-radius: 22px !important;
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .stats-card header {
+        margin-bottom: 1.5rem;
+    }
+
+    .stats-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stats-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .meta-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    /* Reorganizar cards en tablet */
+    .stats-card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .stats-card:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .stats-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .stats-card:nth-child(4) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .stats-card:nth-child(5) {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        max-width: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem !important;
+    }
+
+    .stats-card:nth-child(5) .stats-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    /* Forecast - Cards que rellenan el espacio */
+    .forecast-section {
+        padding: 2rem !important;
+        margin-bottom: 2rem;
+    }
+
+    .forecast-content-flex {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        width: 100%;
+    }
+
+    .forecast-column {
+        min-width: 180px;
+        max-width: none;
+        width: 100%;
+        padding: 2.5rem 2rem !important;
+        border-radius: 22px !important;
+        min-height: 200px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast-icon {
+        width: 70px;
+        height: 70px;
+        margin: 1.5rem 0;
+    }
+
+    .forecast-day {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    .forecast-max {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .forecast-min {
+        font-size: 1.3rem;
+        opacity: 0.8;
+    }
+
+    /* Welcome */
+    .welcome-card {
+        padding: 3.5rem 3rem;
+        max-width: 650px;
+        text-align: center;
+    }
+
+    .welcome-card h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .welcome-card p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+    }
+
+    .fast-cities {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .city-chip {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        min-width: auto;
+        max-width: none;
+        border-radius: 25px;
+    }
+
+    /* Cards generales */
+    .card {
+        padding: 2rem;
+        border-radius: 24px;
+    }
+
+    /* Iconos */
+    .icon-small {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Desktop (1024px - 1440px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .container {
+        padding: 0 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Weather Grid - Custom PC Layout */
+    .weather-grid {
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        grid-template-areas:
+            "hero stats"
+            "forecast forecast";
+        gap: 2rem;
+        padding: 2rem 0;
+        align-items: stretch;
+    }
+
+    /* Hero Weather */
+    .hero-clean {
+        grid-area: hero;
+        padding: 3rem 2.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .city-name {
+        font-size: 2.6rem;
+    }
+
+    .temp-value {
+        font-size: 5.2rem;
+    }
+
+    /* Stats Cards - Right Side Desktop */
+    .secondary-info {
+        grid-area: stats;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .stats-card {
+        padding: 1.5rem !important;
+    }
+
+    .forecast-section {
+        grid-area: forecast;
+    }
+
+    /* Forecast - Grid normal para Desktop */
+    .forecast-content-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+        gap: 1rem;
+        overflow-x: visible;
+        scroll-snap-type: none;
+    }
+
+    .forecast-column {
+        flex: 1;
+        min-width: auto;
+        max-width: none;
+        padding: 1.5rem !important;
+        scroll-snap-align: none;
+    }
+
+    .forecast-column:not(:last-child)::after {
+        display: block;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 10%;
+        height: 80%;
+        width: 1px;
+        background: var(--border);
+        opacity: 0.5;
+    }
+
+    /* Welcome */
+    .welcome-card {
+        padding: 3.5rem;
+        max-width: 600px;
+    }
+
+    .fast-cities {
+        gap: 1rem;
+    }
+
+    .city-chip {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        padding: 0 2.5rem;
+        max-width: 1400px;
+    }
+
+    /* Weather Grid - Custom PC Layout */
+    .weather-grid {
+        display: grid;
+        grid-template-columns: 450px 1fr;
+        grid-template-areas:
+            "hero stats"
+            "forecast forecast";
+        gap: 2rem;
+        padding: 2rem 0;
+        align-items: stretch;
+    }
+
+    /* Hero Weather */
+    .hero-clean {
+        grid-area: hero;
+        padding: 3rem 2.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .city-name {
+        font-size: 2.8rem;
+    }
+
+    .temp-value {
+        font-size: 5.5rem;
+    }
+
+    /* Stats Cards - Right Side Large Desktop */
+    .secondary-info {
+        grid-area: stats;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .stats-card {
+        padding: 1.75rem !important;
+    }
+
+    .forecast-section {
+        grid-area: forecast;
+    }
+
+    /* Forecast - Grid normal para Large Desktop */
+    .forecast-content-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 100%;
+        gap: 1rem;
+        overflow-x: visible;
+        scroll-snap-type: none;
+    }
+
+    .forecast-column {
+        flex: 1;
+        min-width: auto;
+        max-width: none;
+        padding: 1.75rem !important;
+        scroll-snap-align: none;
+    }
+
+    .forecast-column:not(:last-child)::after {
+        display: block;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 10%;
+        height: 80%;
+        width: 1px;
+        background: var(--border);
+        opacity: 0.5;
+    }
+
+    .forecast-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Welcome */
+    .welcome-card {
+        padding: 4.5rem;
+        max-width: 700px;
+    }
+
+    .welcome-card h2 {
+        font-size: 3.2rem;
+    }
+
+    .welcome-card p {
+        font-size: 1.3rem;
+    }
+
+    .fast-cities {
+        gap: 1.25rem;
+    }
+
+    .city-chip {
+        padding: 1rem 1.75rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Special Cases & Optimizations --- */
+
+/* Small Mobile (320px - 380px) */
+@media (max-width: 380px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .city-name {
+        font-size: 1.8rem;
+    }
+
+    .temp-value {
+        font-size: 3.5rem;
+    }
+
+    .temp-unit {
+        font-size: 2rem;
+    }
+
+    .weather-description {
+        font-size: 1.1rem;
+    }
+
+    .stats-card h3 {
+        font-size: 0.8rem;
+    }
+
+    .meta-value {
+        font-size: 1.3rem;
+    }
+
+    .forecast-day {
+        font-size: 1rem;
+    }
+
+    .forecast-max {
+        font-size: 1.1rem;
+    }
+
+    .forecast-min {
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-clean {
+        padding: 1.5rem 1rem;
+    }
+
+    .city-name {
+        font-size: 1.8rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .temp-value {
+        font-size: 3rem;
+    }
+
+    .weather-description {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-card {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+    }
+
+    .welcome-card h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-card p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .card {
+        border-width: 0.5px;
+    }
+
+    .forecast-column:not(:last-child)::after {
+        width: 0.5px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .card,
+    .stats-card,
+    .forecast-column,
+    .welcome-card,
+    .city-chip,
+    .theme-toggle,
+    .search-wrapper {
+        transition: none;
+        animation: none;
+    }
+
+    .card:hover,
+    .stats-card:hover,
+    .forecast-column:hover,
+    .city-chip:hover,
+    .theme-toggle:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,384 @@
+/* --- Premium Weather Effects --- */
+.weather-layer-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    transition: background 1.5s ease;
+}
+
+.weather-layer-fg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Gradients */
+.gradient-sunny-sky {
+    background: linear-gradient(to bottom, #2b88eb 0%, #7db9e8 100%);
+}
+
+.gradient-night-sky {
+    background: linear-gradient(to bottom, #020111 10%, #202236 100%);
+}
+
+.gradient-cloudy-day-sky {
+    background: linear-gradient(to bottom, #8ea5ad 0%, #c4d7e0 100%);
+}
+
+.gradient-cloudy-night-sky {
+    background: linear-gradient(to bottom, #1b2735 0%, #293b4f 100%);
+}
+
+.gradient-rain-sky {
+    background: linear-gradient(to bottom, #3b4d61 0%, #6e7a85 100%);
+}
+
+.gradient-dark-rain-sky {
+    background: linear-gradient(to bottom, #11151a 0%, #2b333a 100%);
+}
+
+.gradient-storm-sky {
+    background: linear-gradient(to bottom, #0f0f12 0%, #282b3d 100%);
+}
+
+.gradient-snow-sky {
+    background: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.gradient-night-snow-sky {
+    background: linear-gradient(to bottom, #1a2333 0%, #30415a 100%);
+}
+
+.gradient-fog-day-sky {
+    background: linear-gradient(to bottom, #aab5c2 0%, #d5dde3 100%);
+}
+
+.gradient-fog-night-sky {
+    background: linear-gradient(to bottom, #10161d 0%, #273441 100%);
+}
+
+/* Celestial */
+.celestial-body {
+    position: absolute;
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+
+.premium-sun {
+    top: 10%;
+    right: 15%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffecd2 0%, #fcb69f 100%);
+    box-shadow: 0 0 80px 30px rgba(255, 200, 100, 0.4);
+    animation: pulseSun 6s infinite alternate;
+}
+
+.partial-sun {
+    top: -20px;
+    right: 50%;
+    opacity: 0.5;
+}
+
+.premium-moon {
+    top: 15%;
+    right: 20%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #fff 0%, #d4dbdf 100%);
+    box-shadow: 0 0 60px 15px rgba(200, 220, 255, 0.3);
+}
+
+.partial-moon {
+    top: 0;
+    right: 30%;
+    opacity: 0.4;
+}
+
+@keyframes pulseSun {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.premium-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: twinkle 4s infinite linear alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Clouds */
+.premium-cloud {
+    position: absolute;
+    width: 250px;
+    height: 80px;
+    border-radius: 100px;
+    filter: blur(5px);
+    animation: driftCloud linear infinite;
+    z-index: 10;
+}
+
+.premium-cloud::before,
+.premium-cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.premium-cloud::before {
+    width: 120px;
+    height: 120px;
+    top: -50px;
+    left: 30px;
+}
+
+.premium-cloud::after {
+    width: 90px;
+    height: 90px;
+    top: -30px;
+    right: 40px;
+}
+
+.light-cloud {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dark-cloud {
+    background: rgba(80, 85, 95, 0.7);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes driftCloud {
+    0% {
+        transform: translateX(0) scale(var(--scale, 1));
+    }
+
+    100% {
+        transform: translateX(150vw) scale(var(--scale, 1));
+    }
+}
+
+/* Rain & Snow */
+.premium-rain {
+    position: absolute;
+    top: -10%;
+    width: 1.5px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+    animation: fallRain linear infinite;
+    transform: rotate(15deg);
+}
+
+.heavy-rain {
+    width: 2.5px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 100%);
+}
+
+@keyframes fallRain {
+    0% {
+        transform: translateY(0) rotate(15deg) scaleY(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(120vh) translateX(-30vh) rotate(15deg) scaleY(1.5);
+        opacity: 0;
+    }
+}
+
+.premium-snow {
+    position: absolute;
+    top: -10%;
+    background: radial-gradient(circle, #fff 40%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    animation: fallSnow linear infinite;
+}
+
+@keyframes fallSnow {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mist/Fog */
+.premium-mist {
+    position: absolute;
+    width: 150vw;
+    height: 40vh;
+    left: -25vw;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: blur(20px);
+    animation: driftMist linear infinite alternate;
+}
+
+@keyframes driftMist {
+    0% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(5%);
+    }
+}
+
+/* Lightning */
+.premium-lightning-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 99;
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+}
+
+/* --- Weather Body Classes --- */
+body[class*="weather-"] .main-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+body[class*="weather-"] .logo {
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+body[class*="weather-"] .logo span {
+    background: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body[class*="weather-"] .search-wrapper {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+body[class*="weather-"] #city-input {
+    color: #fff !important;
+}
+
+body[class*="weather-"] #city-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- Weather Body Classes --- */
+body[class*="weather-"] .main-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+body[class*="weather-"] .logo {
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+body[class*="weather-"] .logo span {
+    background: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body[class*="weather-"] .search-wrapper {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+body[class*="weather-"] #city-input {
+    color: #fff !important;
+}
+
+body[class*="weather-"] #city-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* --- Enhanced Premium Glass Cards --- */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+body[class*="weather-"] .card header svg,
+body[class*="weather-"] .card .icon-small {
+    stroke: #fff;
+}
+
+/* In bright modes, invert to light mode cards */
+body.weather-clear-day .card,
+body.weather-cloudy-day .card,
+body.weather-snowy-day .card,
+body.weather-partly-cloudy .card {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    color: #1a202c;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.weather-clear-day .card:hover,
+body.weather-cloudy-day .card:hover,
+body.weather-snowy-day .card:hover,
+body.weather-partly-cloudy .card:hover {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
