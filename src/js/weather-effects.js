@@ -41,11 +41,7 @@ export function setupWeatherBackground(weatherMain, weatherDescription, icon = '
     }
 }
 
-<<<<<<< HEAD
 export function clearWeatherEffects() {
-=======
-function clearWeatherEffects() {
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
     document.body.className = document.body.className.replace(/weather-\w+/g, '');
     document.body.className = document.body.className.replace('weather-night-mode', '');
 
@@ -115,7 +111,6 @@ function setupFoggyCondition(isNight) {
     createFog(fg);
 }
 
-<<<<<<< HEAD
 export function setupDefaultBackground() {
     clearWeatherEffects();
     const fg = createForegroundLayer();
@@ -126,8 +121,6 @@ export function setupDefaultBackground() {
     createFog(fg);
 }
 
-=======
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
 /* --- Element Generators --- */
 
 function createBackgroundLayer(themeClass) {

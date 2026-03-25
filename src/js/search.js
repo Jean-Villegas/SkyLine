@@ -45,7 +45,7 @@ export function setupSearch(elements) {
 async function handleSearchInput(event, elements) {
     const query = event.target.value.trim();
 
-    if (query.length < 3) {
+    if (query.length < 2) {
         hideSuggestions(elements);
         return;
     }

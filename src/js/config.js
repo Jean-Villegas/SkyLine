@@ -13,7 +13,6 @@ export const UI_SELECTORS = {
     cityInput: 'city-input',
     searchBtn: 'search-btn',
     suggestionsList: 'suggestions-list',
-    themeToggle: 'theme-toggle',
     loader: 'loader',
     errorMessage: 'error-message',
     weatherSection: 'weather-section',

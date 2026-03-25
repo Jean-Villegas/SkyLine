@@ -41,13 +41,8 @@ export function getCurrentLocation() {
                 reject(new Error(errorMessage));
             },
             {
-<<<<<<< HEAD
                 enableHighAccuracy: false,
                 timeout: 20000,
-=======
-                enableHighAccuracy: true,
-                timeout: 10000,
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
                 maximumAge: 300000 // 5 minutos de caché
             }
         );
@@ -59,11 +54,8 @@ export function getCurrentLocation() {
  * @param {Object} elements - Elementos del DOM
  */
 export async function loadCurrentLocationWeather(elements) {
-<<<<<<< HEAD
     setLoader(elements, true);
 
-=======
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
     try {
         console.log('Obteniendo ubicación actual...');
         const coords = await getCurrentLocation();
@@ -76,10 +68,7 @@ export async function loadCurrentLocationWeather(elements) {
         await loadWeatherDataForLocation(coords.lat, coords.lon, cityName, elements);
 
     } catch (error) {
-<<<<<<< HEAD
         setLoader(elements, false);
-=======
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
         console.error('Error en geolocalización:', error);
         const errorMessage = error.message || 'No se pudo obtener tu ubicación automáticamente';
         showError(elements, errorMessage);

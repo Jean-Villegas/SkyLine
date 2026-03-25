@@ -4,7 +4,8 @@
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 0;
+    padding: 0.4rem 0;
+    /* Menos grueso */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -16,6 +17,20 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    /* Aún más cerca */
+}
+
+.logo-img {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .logo {

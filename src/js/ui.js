@@ -25,7 +25,6 @@ export function getElements() {
     return elements;
 }
 
-<<<<<<< HEAD
 let loaderInterval = null;
 const loaderMessages = [
     "Buscando tu ubicación...",
@@ -38,15 +37,10 @@ const loaderMessages = [
 
 /**
  * Controlar el estado del loader con mensajes dinámicos y transiciones suaves
-=======
-/**
- * Controlar el estado del loader
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
  * @param {Object} elements - Elementos del DOM
  * @param {boolean} isLoading - Estado de carga
  */
 export function setLoader(elements, isLoading) {
-<<<<<<< HEAD
     if (!elements.loader) return;
 
     const loaderText = document.getElementById('loader-text');
@@ -91,22 +85,6 @@ export function setLoader(elements, isLoading) {
             clearInterval(loaderInterval);
             loaderInterval = null;
         }
-=======
-    console.log(`setLoader llamado con isLoading: ${isLoading}`);
-    if (!elements.loader) {
-        console.error('Elemento loader no encontrado');
-        return;
-    }
-
-    if (isLoading) {
-        console.log('Mostrando loader');
-        elements.loader.classList.remove('hidden');
-        elements.loader.setAttribute('aria-hidden', 'false');
-    } else {
-        console.log('Ocultando loader');
-        elements.loader.classList.add('hidden');
-        elements.loader.setAttribute('aria-hidden', 'true');
->>>>>>> 830b9d1b8993e200baa0eef89eb623a3581f7f75
     }
 }
 

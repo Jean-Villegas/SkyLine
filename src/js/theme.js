@@ -6,49 +6,24 @@
  * Inicializar el tema de la aplicación
  */
 export function initTheme() {
-    const savedTheme = localStorage.getItem('skyline-theme');
-    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemPreference;
-    
-    applyTheme(initialTheme);
+    // Solo tema light disponible
+    applyTheme('light');
 }
 
 /**
  * Aplicar tema a la aplicación
- * @param {string} theme - Tema a aplicar ('light' o 'dark')
+ * @param {string} theme - Tema a aplicar ('light')
  */
 export function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('skyline-theme', theme);
-    
-    // Actualizar iconos del toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-    
-    const sunIcon = themeToggle.querySelector('.sun-icon');
-    const moonIcon = themeToggle.querySelector('.moon-icon');
-    
-    if (!sunIcon || !moonIcon) return;
-    
-    if (theme === 'dark') {
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-    } else {
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-    }
+    // Siempre aplica tema light
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('skyline-theme', 'light');
 }
 
 /**
  * Configurar el toggle de tema
  */
 export function setupThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
-    });
+    // Función desactivada - solo tema light disponible
+    return;
 }
