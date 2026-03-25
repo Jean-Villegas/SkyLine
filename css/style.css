@@ -525,6 +525,8 @@ body[class*="weather-"] .theme-toggle {
     flex: 1;
     position: relative;
     text-align: center;
+    padding: 1.25rem !important;
+    border-radius: 20px !important;
 }
 
 .forecast-column:not(:last-child)::after {
